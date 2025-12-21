@@ -68,13 +68,13 @@ export class Login extends Component {
   }
 
   get productName() {
-    const { product_name = { zh: t('Cloud Platform'), en: 'Cloud Platform' } } =
+    const { product_name = { zh: t('Shadhin Cloud Platform'), en: 'Shadhin Cloud Platform' } } =
       this.info;
     const { getLocaleShortName } = i18n;
     const language = getLocaleShortName();
     const name =
-      product_name[language] || t('Cloud Platform') || 'Cloud Platform';
-    return t('Welcome, {name}', { name });
+      product_name[language] || t('Shadhin Cloud Platform') || 'Cloud Platform';
+    return t('Welcome to {name}', { name });
   }
 
   get regions() {
