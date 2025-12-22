@@ -666,6 +666,7 @@ const renderMenu = (t) => {
         },
       ],
     },
+
     // {
     //   path: '/management',
     //   name: t('Maintenance'),
