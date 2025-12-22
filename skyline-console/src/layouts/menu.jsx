@@ -664,6 +664,12 @@ const renderMenu = (t) => {
             },
           ],
         },
+        {
+          path: '/billing/transaction_logs',
+          name: t('Transaction Logs'),
+          key: 'billingTransactionLogs',
+          level: 1,
+        },
       ],
     },
 

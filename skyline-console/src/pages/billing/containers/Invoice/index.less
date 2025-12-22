@@ -1,23 +1,45 @@
-.invoice_wrapper {
+.invoicePage {
+    padding: 20px;
+}
+
+/* ===== Header ===== */
+.headerCard {
+    margin-bottom: 16px;
+}
+
+/* 🔥 THIS IS THE KEY */
+.headerCard :global(.ant-card-body) {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    /* left ↔ right */
     align-items: center;
-    /* horizontally center */
-    justify-content: center;
-    /* vertically center if needed */
-    padding: 24px;
+    width: 100%;
 }
 
-.header_invoice {
-    font-size: 40px;
-    color: green;
-    /* override parent styles */
-    text-align: center;
+/* Left side */
+.headerLeft {
+    display: flex;
+    align-items: center;
 }
 
-.content_invoice {
-    font-size: 24px;
-    color: tomato;
-    /* override parent styles */
-    text-align: center;
+/* Right side */
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ===== Filter ===== */
+.filterCard {
+    margin-bottom: 16px;
+
+    :global(.ant-card-body) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+.tableData {
+    font-size: 15px;
 }
