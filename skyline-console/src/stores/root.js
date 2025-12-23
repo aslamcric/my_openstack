@@ -69,7 +69,7 @@ export class RootStore {
   noticeCountWaitRemove = 0;
 
   @observable
-  enableBilling = true;
+  enableBilling = false;
 
   @observable
   paymentExpired = false; // টেস্ট করার জন্য true রাখা হয়েছে
