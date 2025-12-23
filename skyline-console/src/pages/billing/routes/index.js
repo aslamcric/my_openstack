@@ -3,6 +3,7 @@ import E404 from 'pages/base/containers/404';
 
 import Invoice from '../containers/Invoice';
 import TransactionLogs from '../containers/TransactionLogs';
+import PayBill from '../containers/PayBill';
 
 const PATH = '/billing';
 
@@ -11,6 +12,11 @@ export default [
     path: PATH,
     component: BaseLayout,
     routes: [
+      {
+        path: `${PATH}/paybill`,
+        component: PayBill,
+        exact: true,
+      },
       {
         path: `${PATH}/invoices`,
         component: Invoice,

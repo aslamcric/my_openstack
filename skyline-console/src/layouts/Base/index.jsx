@@ -29,6 +29,7 @@ import renderUserMenu from '../user-menu';
 import RightContext from './Right';
 import LayoutMenu from './Menu';
 import styles from './index.less';
+import { message } from 'antd';
 
 const { Header } = Layout;
 
@@ -101,15 +102,11 @@ export class BaseLayout extends Component {
   }
 
   get menu() {
-    // অরিজিনাল মেনু নিন
+
     const menu = this.filterMenuByHidden(this.originMenu);
-
-    // rootStore থেকে পেমেন্ট স্ট্যাটাস চেক করুন
     const { paymentExpired } = this.rootStore;
-
     let targetMenu = menu;
 
-    // যদি পেমেন্ট এক্সপায়ার হয়, তবে শুধু billing মেনু দেখাবে
     if (paymentExpired) {
       targetMenu = menu.filter((it) => it.key === 'billing');
     }
@@ -244,13 +241,29 @@ export class BaseLayout extends Component {
     const { paymentExpired } = this.rootStore;
     const { pathname } = this.props.location;
 
-    // পেমেন্ট এক্সপায়ার থাকলে billing ছাড়া অন্য সব পাথে বাধা দিন
     if (paymentExpired && !pathname.startsWith('/billing') && pathname !== '/login') {
-      window.location.href = '/billing/invoices';
+      window.location.href = '/billing/paybill';
       return;
     }
 
-    // আগের বাকি কোডগুলো এখানে থাকবে...
+    if (paymentExpired) {
+      message.error({
+        key: 'payment-expired',
+        content: (
+          <div
+            style={{
+              color: '#ff4d4f',
+              fontSize: '13px',
+              fontWeight: '600',
+            }}
+          >
+            Payment Required: Please Pay Bill to unlock all features.
+          </div>
+        ),
+        duration: 0,
+      });
+    }
+
     if (this.isAdminPage && !this.hasAdminPageRole) {
       window.location.href = '/base/overview';
     }

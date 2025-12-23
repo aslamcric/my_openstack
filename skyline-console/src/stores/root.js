@@ -72,7 +72,7 @@ export class RootStore {
   enableBilling = false;
 
   @observable
-  paymentExpired = false; // টেস্ট করার জন্য true রাখা হয়েছে
+  paymentExpired = true; // whether the payment is expired true: expired false: not expired
 
   @observable
   neutronExtensions = [];
@@ -84,6 +84,7 @@ export class RootStore {
     this.routing = new RouterStore();
     this.routing.query = this.query;
     global.navigateTo = this.routing.push;
+    this.checkPaymentStatus();
   }
 
   get client() {
@@ -105,6 +106,20 @@ export class RootStore {
   setKeystoneToken(result) {
     const { keystone_token } = result || {};
     setLocalStorageItem('keystone_token', keystone_token);
+  }
+
+  @action
+  checkPaymentStatus() {
+    const status = localStorage.getItem('paymentExpired');
+    // যদি লোকাল স্টোরেজে 'false' স্ট্রিং থাকে, তবে এটি false হবে, অন্যথায় true
+    this.paymentExpired = status !== 'false';
+  }
+
+  // পেমেন্ট সফল হওয়ার পর কল করার জন্য অ্যাকশন
+  @action
+  setPaymentSuccess() {
+    localStorage.setItem('paymentExpired', 'false');
+    this.paymentExpired = false;
   }
 
   @action

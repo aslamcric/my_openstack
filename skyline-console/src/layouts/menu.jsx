@@ -521,7 +521,7 @@ const renderMenu = (t) => {
           path: '/network/dns/zones',
           name: t('DNS Zones'),
           key: 'dnsZones',
-          endpoints: 'designate',
+          // endpoints: 'designate',
           level: 1,
           children: [
             {
@@ -544,7 +544,7 @@ const renderMenu = (t) => {
           path: '/network/dns/reverse',
           name: t('DNS Reverse'),
           key: 'dnsReverse',
-          endpoints: 'designate',
+          // endpoints: 'designate',
           level: 1,
           children: [
             {
@@ -649,6 +649,12 @@ const renderMenu = (t) => {
       key: 'billing',
       icon: <ContainerOutlined />,
       children: [
+        {
+          path: '/billing/paybill',
+          name: t('Pay Bill'),
+          key: 'payBill',
+          level: 1,
+        },
         {
           path: '/billing/invoices',
           name: t('Invoices'),
