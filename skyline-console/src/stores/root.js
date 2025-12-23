@@ -69,7 +69,10 @@ export class RootStore {
   noticeCountWaitRemove = 0;
 
   @observable
-  enableBilling = false;
+  enableBilling = true;
+
+  @observable
+  paymentExpired = false; // টেস্ট করার জন্য true রাখা হয়েছে
 
   @observable
   neutronExtensions = [];
