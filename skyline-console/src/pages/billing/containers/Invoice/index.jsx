@@ -63,7 +63,22 @@ const Invoice = () => {
     return (
         <div className={styles.invoicePage}>
             {/* Header */}
-            <Card bordered={false} className={styles.headerCard}>
+            <div className={styles.headerRow}>
+                <h2 className={styles.header}>INVOICES</h2>
+                <div className={styles.headerRight}>
+                    <Button icon={<ReloadOutlined />}>Refresh</Button>
+                    <Button type="primary" icon={<DownloadOutlined />}>
+                        Export CSV
+                    </Button>
+                    <Button disabled icon={<DownloadOutlined />}>
+                        Export Invoice
+                    </Button>
+                </div>
+            </div>
+
+
+            {/* Header */}
+            {/* <Card bordered={false} className={styles.headerCard}>
                 <div className={styles.headerLeft}>
                     <h2>INVOICES</h2>
                 </div>
@@ -77,7 +92,7 @@ const Invoice = () => {
                         Export Invoice
                     </Button>
                 </div>
-            </Card>
+            </Card> */}
 
             {/* Filter */}
             <Card bordered={false} className={styles.filterCard}>
