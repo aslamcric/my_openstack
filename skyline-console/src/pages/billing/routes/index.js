@@ -5,6 +5,7 @@ import Invoice from '../containers/Invoice';
 import TransactionLogs from '../containers/TransactionLogs';
 import PayBill from '../containers/PayBill';
 import BuyPackages from '../containers/BuyPackage';
+import BuyCredit from '../containers/BuyCredit';
 
 const PATH = '/billing';
 
@@ -13,6 +14,11 @@ export default [
     path: PATH,
     component: BaseLayout,
     routes: [
+      {
+        path: `${PATH}/buycredit`,
+        component: BuyCredit,
+        exact: true,
+      },
       {
         path: `${PATH}/buypackages`,
         component: BuyPackages,
