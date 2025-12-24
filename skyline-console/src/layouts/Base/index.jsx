@@ -242,7 +242,7 @@ export class BaseLayout extends Component {
     const { pathname } = this.props.location;
 
     if (paymentExpired && !pathname.startsWith('/billing') && pathname !== '/login') {
-      window.location.href = '/billing/paybill';
+      window.location.href = '/billing/buypackages';
       return;
     }
 

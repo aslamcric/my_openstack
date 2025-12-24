@@ -650,11 +650,17 @@ const renderMenu = (t) => {
       icon: <ContainerOutlined />,
       children: [
         {
-          path: '/billing/paybill',
-          name: t('Pay Bill'),
-          key: 'payBill',
+          path: '/billing/buypackages',
+          name: t('Buy Packages'),
+          key: 'buyPackages',
           level: 1,
         },
+        // {
+        //   path: '/billing/paybill',
+        //   name: t('Pay Bill'),
+        //   key: 'payBill',
+        //   level: 1,
+        // },
         {
           path: '/billing/invoices',
           name: t('Invoices'),
